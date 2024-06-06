@@ -22,9 +22,10 @@
     <link rel="stylesheet" href="/template/css/vertical-layout-light/style.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="/template/images/favicon.png" />
+   
 </head>
 
-<body>
+<body>  
     <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
         @include('layouts.partials.navbar')
@@ -40,6 +41,8 @@
                 <div class="content-wrapper">
                     <div class="row">
                         <div class="col-sm-12">
+                            @include('flash::message')
+                            @yield('content')
                         </div>
                     </div>
                 </div>
@@ -83,6 +86,10 @@
     <script src="/template/js/dashboard.js"></script>
     <script src="/template/js/Chart.roundedBarCharts.js"></script>
     <!-- End custom js for this page-->
+    <script>
+        $('div.alert').not('.alert-important').delay(5000).fadeOut(450);
+    </script>
+    
 </body>
 
 </html>
