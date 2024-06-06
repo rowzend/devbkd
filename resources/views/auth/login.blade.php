@@ -58,7 +58,7 @@
                                 </div>
                                 <div class="mt-3">
                                     <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
-                                        type="submit">{{ _('Sing In') }}</button>
+                                        type="submit">Sing in</button>
                                 </div>
                             </form>
                         </div>
