@@ -17,13 +17,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.beranda');
 });
 
 Auth::routes();
 
 // Admin Route
-Route::prefix('admin')->group(function (){
+Route::prefix('admin')->group(function () {
     Route::middleware('admin')->group(function () {
         Route::get('/test', [TestController::class, 'index'])->name('dashboard.admin');
     });
