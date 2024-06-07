@@ -1,0 +1,1 @@
+<a href="#" class="btn btn-xs btn-danger">delete</a>

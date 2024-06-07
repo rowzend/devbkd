@@ -11,7 +11,7 @@ class StoreLayananRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,22 @@ class StoreLayananRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nama' => 'required|string',
+            'url' => 'required|string',
+            'deskripsi' => 'required|string',
+            'thumbnail' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+        ];
+    }
+
+    public function messages() :array
+    {
+        return [
+            'nama.required' => 'Nama kosong',
+            'deskripsi.required' => 'Deskripsi kosong',
+            'url.required' => 'URL kosong',
+            'thumbnail.mimes' => 'Hanya boleh jpeg,png,jpg,gif,svg',
+            'thumbnail.max' => 'File hanya boleh 2MB',
         ];
     }
 }

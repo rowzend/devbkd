@@ -69,7 +69,7 @@
         </li>
         <li class="nav-item nav-category">Layanan</li>
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ route('layanan.index') }}">
                 <i class="menu-icon mdi mdi-file-document"></i>
                 <span class="menu-title">Daftar Layanan</span>
             </a>

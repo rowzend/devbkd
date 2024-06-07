@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="/template/css/vertical-layout-light/style.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="/template/images/favicon.png" />
-   
+    @stack('css')
 </head>
 
 <body>  
@@ -89,6 +89,7 @@
     <script>
         $('div.alert').not('.alert-important').delay(5000).fadeOut(450);
     </script>
+    @stack('js')
     
 </body>
 
