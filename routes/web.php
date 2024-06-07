@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LayananController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -30,3 +31,4 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+Route::get('/backend.layanan', [App\Http\Controllers\LayananController::class, 'index']);
