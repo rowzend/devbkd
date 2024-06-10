@@ -1,68 +1,77 @@
 @extends('layouts.partials.join')
 
-@push('css')
-    <link href="{{ asset('asset/plugins/dataTables/datatables.css') }}" rel="stylesheet">
-@endpush
-
 @section('content')
-<div id="main">
-    <header class="mb-3">
-        <a href="#" class="burger-btn d-block d-xl-none">
-            <i class="bi bi-justify fs-3"></i>
-        </a>
-    </header>
+    <div id="main">
+        <header class="mb-3">
+            <a href="#" class="burger-btn d-block d-xl-none">
+                <i class="bi bi-justify fs-3"></i>
+            </a>
+        </header>
 
-    <div class="page-heading">
-        <h3>Layanan</h3>
-    </div>
-    <div class="page-content">
-        <section class="row">
-            <div class="col-12 col-lg-12">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <a class="btn btn-sm btn-primary" href="{{ route('layanan.create') }}">
-                                    Tambah Data</a>
-                            </div>
-                            <div class="card-body">
-                                <table class='table table-condensed table-hover table-striped' id="table1">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Nama</th>
-                                            <th>URL</th>
-                                            <th>Opsi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
+        <div class="page-heading">
+            <h3>Layanan</h3>
+        </div>
+        <div class="page-content">
+            <section class="row">
+                <div class="col-12 col-lg-12">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <a class="btn btn-sm btn-primary" href="{{ route('layanan.create') }}">
+                                        Tambah Data</a>
+                                </div>
+                                <div class="card-body">
+                                    <table class='table table-striped' id="table1">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Nama</th>
+                                                <th>URL</th>
+                                                <th>Opsi</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-        </section>
+            </section>
+        </div>
     </div>
 @endsection
 
-@push('js')  
-<script src="{{ asset('asset/plugins/dataTables/datatables.js') }}" defer></script>
-
-<script>
-    $(document).ready(function() {
+@push('script')
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script>
         $('#table1').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('layanan.datatables') }}",
-            columns: [
-                { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
-                { data: 'nama', name: 'nama' },
-                { data: 'url', name: 'url' },
-                { data: 'actions', name: 'actions' },                       
-            ]
+            ajax: "{{ route('layanan.index') }}",
+            columns: [{
+                    data: 'DT_RowIndex',
+                    name: 'DT_RowIndex',
+                    orderable: false,
+                    searchable: false,
+                },
+                {
+                    data: 'nama',
+                    name: 'nama'
+                },
+                {
+                    data: 'url',
+                    name: 'url'
+                },
+                {
+                    data: 'action',
+                    name: 'action',
+                    orderable: false,
+                    searchable: false
+                }
+            ],
         });
-    });
-</script>
+    </script>
 @endpush

@@ -18,14 +18,14 @@
                             <div class="card">
                                 <div class="card-content">
                                     <div class="card-body">
-                                        <form action="{{ route('backend.layanan.update', $service->id) }}" method="POST"
+                                        <form action="{{ route('layanan.update', $layanan->id) }}" method="POST"
                                             enctype="multipart/form-data">
                                             @csrf
                                             @method('PATCH')
-                                            @include('backend.layanan.include.form')
+                                            @include('admin.layanan.include.form')
                                             <div class="mt-2">
                                                 <button type="submit" class="btn btn-primary me-2">Simpan</button>
-                                                <a href="{{ route('backend.layanan.index') }}"
+                                                <a href="{{ route('layanan.index') }}"
                                                     class="btn btn-outline-secondary">Kembali</a>
                                             </div>
                                         </form>
@@ -38,4 +38,5 @@
 
             </section>
         </div>
-    @endsection
+    </div>
+@endsection
