@@ -1,5 +1,9 @@
 @extends('layouts.partials.join')
 
+@push('css')
+<link rel="stylesheet" href="{{ asset('asset/plugins/dataTables/datatables.css') }}">
+@endpush
+
 @section('content')
     <div id="main">
         <header class="mb-3">
@@ -31,6 +35,7 @@
                                                 <th>Opsi</th>
                                             </tr>
                                         </thead>
+                                        <tbody></tbody>
                                     </table>
                                 </div>
                             </div>
@@ -43,35 +48,21 @@
     </div>
 @endsection
 
-@push('script')
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+@push('js')
+    <script src="{{ asset('asset/plugins/dataTables/datatables.js') }}" defer></script>
     <script>
-        $('#table1').DataTable({
-            processing: true,
-            serverSide: true,
-            ajax: "{{ route('layanan.index') }}",
-            columns: [{
-                    data: 'DT_RowIndex',
-                    name: 'DT_RowIndex',
-                    orderable: false,
-                    searchable: false,
-                },
-                {
-                    data: 'nama',
-                    name: 'nama'
-                },
-                {
-                    data: 'url',
-                    name: 'url'
-                },
-                {
-                    data: 'action',
-                    name: 'action',
-                    orderable: false,
-                    searchable: false
-                }
-            ],
+         $(document).ready(function() {
+            $('#table1').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('datatables/admin/layanan') }}",
+                columns: [
+                    { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
+                    { data: 'nama', name: 'nama' },
+                    { data: 'url', name: 'url' },
+                    { data: 'url', name: 'url', orderable: false, searchable: false }
+                ]
+            });
         });
     </script>
 @endpush

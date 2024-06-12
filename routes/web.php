@@ -29,6 +29,8 @@ Route::prefix('admin')->group(function () {
     Route::middleware('admin')->group(function () {
         Route::get('/test', [TestController::class, 'index'])->name('dashboard.admin');
         Route::resource('/layanan', AdminLayananController::class);
+
+        Route::get('datatables/layanan', [DatatablesController::class, 'layanan'])->name('datatables/admin/layanan');
     });
 
     //Datatables

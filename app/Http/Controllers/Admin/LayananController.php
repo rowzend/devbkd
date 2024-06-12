@@ -72,7 +72,7 @@ class LayananController extends Controller
         Layanan::create($aku);
 
         Flash::success('alamat berhasil di tambah');
-        return redirect()->route('backend.admin.layanan.index');
+        return redirect()->route('layanan.index');
     }
 
     /**
